@@ -1,0 +1,319 @@
+{
+  "tested_at": "2026-11-14T22:16:23.759Z",
+  "synthetic_input": true,
+  "profile": {
+    "background": "Alex Example is a recent quantitative graduate with Python and statistics skills.",
+    "skills": [
+      "Python",
+      "statistics"
+    ],
+    "goals": [
+      "pursue a research career"
+    ],
+    "constraints": [
+      "remain near family"
+    ],
+    "explicitly_stated_values": [
+      "learning",
+      "autonomy",
+      "relationships"
+    ]
+  },
+  "fields": [
+    {
+      "path": "/background",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "Alex Example is a recent quantitative graduate with Python and statistics skills.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": [
+              [
+                [
+                  0.11759259591540855,
+                  0.1175804392090722
+                ],
+                [
+                  0.8200838819255007,
+                  0.1175804392090722
+                ],
+                [
+                  0.8200838819255007,
+                  0.13716494960460424
+                ],
+                [
+                  0.11759259591540855,
+                  0.13716494960460424
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/goals/0",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "Goal: pursue a research career. Constraint: remain near family.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": [
+              [
+                [
+                  0.17137607473396635,
+                  0.1532145669539658
+                ],
+                [
+                  0.40217333239686887,
+                  0.1532145669539658
+                ],
+                [
+                  0.40217333239686887,
+                  0.17279906828727282
+                ],
+                [
+                  0.17137607473396635,
+                  0.17279906828727282
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/skills/0",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "Alex Example is a recent quantitative graduate with Python and statistics skills.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": [
+              [
+                [
+                  0.5803361428976432,
+                  0.1175804392090722
+                ],
+                [
+                  0.6430902507383629,
+                  0.1175804392090722
+                ],
+                [
+                  0.6430902507383629,
+                  0.13716494960460424
+                ],
+                [
+                  0.5803361428976432,
+                  0.13716494960460424
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/skills/1",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "Alex Example is a recent quantitative graduate with Python and statistics skills.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": [
+              [
+                [
+                  0.6879232481919656,
+                  0.1175804392090722
+                ],
+                [
+                  0.7652118144221339,
+                  0.1175804392090722
+                ],
+                [
+                  0.7652118144221339,
+                  0.13716494960460424
+                ],
+                [
+                  0.6879232481919656,
+                  0.13716494960460424
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/constraints/0",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "Goal: pursue a research career. Constraint: remain near family.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": [
+              [
+                [
+                  0.5108490263760004,
+                  0.1532145669539658
+                ],
+                [
+                  0.682238532881438,
+                  0.1532145669539658
+                ],
+                [
+                  0.682238532881438,
+                  0.17279906828727282
+                ],
+                [
+                  0.5108490263760004,
+                  0.17279906828727282
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/explicitly_stated_values/0",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "Explicitly stated values: learning, autonomy, and relationships.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": [
+              [
+                [
+                  0.33157747953321004,
+                  0.18884868563663434
+                ],
+                [
+                  0.4088861934205852,
+                  0.18884868563663434
+                ],
+                [
+                  0.4088861934205852,
+                  0.2084331869699414
+                ],
+                [
+                  0.33157747953321004,
+                  0.2084331869699414
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/explicitly_stated_values/1",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "Explicitly stated values: learning, autonomy, and relationships.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": [
+              [
+                [
+                  0.4144903181022855,
+                  0.18884868563663434
+                ],
+                [
+                  0.5086114060347616,
+                  0.18884868563663434
+                ],
+                [
+                  0.5086114060347616,
+                  0.2084331869699414
+                ],
+                [
+                  0.4144903181022855,
+                  0.2084331869699414
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/explicitly_stated_values/2",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "Explicitly stated values: learning, autonomy, and relationships.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": [
+              [
+                [
+                  0.5534444034883643,
+                  0.18884868563663434
+                ],
+                [
+                  0.6721994628316738,
+                  0.18884868563663434
+                ],
+                [
+                  0.6721994628316738,
+                  0.2084331869699414
+                ],
+                [
+                  0.5534444034883643,
+                  0.2084331869699414
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "/goals",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "pursue a research career.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": []
+          }
+        }
+      ]
+    },
+    {
+      "path": "/constraints",
+      "status": "found",
+      "citations": [
+        {
+          "source_text": "remain near family.",
+          "location": {
+            "page": 1,
+            "kind": "page_region",
+            "polygons": []
+          }
+        }
+      ]
+    }
+  ],
+  "source": "ndi",
+  "review_required": true,
+  "cost_usd": "0.012"
+}

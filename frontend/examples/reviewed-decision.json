@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "question": "Should I pursue a funded PhD or accept an industry analytics role?",
+  "profile": "Synthetic demo profile: a recent quantitative graduate who values research, has an industry offer, and wants to stay near family. Neither option is ruled out.",
+  "philosophy": "Balance long-term flourishing with responsibilities to others.",
+  "options": [
+    {
+      "id": "option_0",
+      "label": "Funded PhD",
+      "feasible": true
+    },
+    {
+      "id": "option_1",
+      "label": "Industry analytics role",
+      "feasible": true
+    }
+  ],
+  "weights": {
+    "security": 0.2,
+    "growth": 0.3,
+    "autonomy": 0.15,
+    "connection": 0.2,
+    "meaning": 0.15
+  },
+  "risk_aversion": 0.5,
+  "analysis_source": "elicited",
+  "mode": "live",
+  "scenario_inputs": [
+    {
+      "option_id": "option_0",
+      "spread": 0.18,
+      "horizons": [
+        {
+          "year": 1,
+          "criteria": {
+            "security": 0.35,
+            "growth": 0.85,
+            "autonomy": 0.55,
+            "connection": 0.45,
+            "meaning": 0.85
+          }
+        },
+        {
+          "year": 5,
+          "criteria": {
+            "security": 0.45,
+            "growth": 0.9,
+            "autonomy": 0.7,
+            "connection": 0.45,
+            "meaning": 0.9
+          }
+        },
+        {
+          "year": 20,
+          "criteria": {
+            "security": 0.65,
+            "growth": 0.8,
+            "autonomy": 0.8,
+            "connection": 0.6,
+            "meaning": 0.85
+          }
+        }
+      ]
+    },
+    {
+      "option_id": "option_1",
+      "spread": 0.1,
+      "horizons": [
+        {
+          "year": 1,
+          "criteria": {
+            "security": 0.8,
+            "growth": 0.65,
+            "autonomy": 0.45,
+            "connection": 0.8,
+            "meaning": 0.6
+          }
+        },
+        {
+          "year": 5,
+          "criteria": {
+            "security": 0.85,
+            "growth": 0.7,
+            "autonomy": 0.6,
+            "connection": 0.8,
+            "meaning": 0.65
+          }
+        },
+        {
+          "year": 20,
+          "criteria": {
+            "security": 0.8,
+            "growth": 0.65,
+            "autonomy": 0.7,
+            "connection": 0.8,
+            "meaning": 0.7
+          }
+        }
+      ]
+    }
+  ]
+}

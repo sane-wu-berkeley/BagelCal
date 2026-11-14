@@ -1,0 +1,225 @@
+{
+  "tested_at": "2026-11-14T22:22:09.056Z",
+  "input": {
+    "schema_version": "1.0",
+    "question": "Should I pursue a funded PhD or accept an industry analytics role?",
+    "profile": "Synthetic demo profile: a recent quantitative graduate who values research, has an industry offer, and wants to stay near family. Neither option is ruled out.",
+    "philosophy": "Balance long-term flourishing with responsibilities to others.",
+    "options": [
+      {
+        "id": "option_0",
+        "label": "Funded PhD",
+        "feasible": true
+      },
+      {
+        "id": "option_1",
+        "label": "Industry analytics role",
+        "feasible": true
+      }
+    ],
+    "weights": {
+      "security": 0.2,
+      "growth": 0.3,
+      "autonomy": 0.15,
+      "connection": 0.2,
+      "meaning": 0.15
+    },
+    "risk_aversion": 0.5,
+    "analysis_source": "scenario",
+    "mode": "live"
+  },
+  "result": {
+    "source": "live",
+    "analysis": {
+      "schema_version": "1.0",
+      "source": "illustrative",
+      "suggested_weights": {
+        "security": 0.2,
+        "growth": 0.3,
+        "autonomy": 0.15,
+        "connection": 0.2,
+        "meaning": 0.15
+      },
+      "actions": [
+        {
+          "option_id": "option_0",
+          "expected_utility": 0.45500000000000007,
+          "expected_regret": 0.05499999999999999,
+          "tail_regret": 0.12100000000000005,
+          "score": 0.3945000000000001,
+          "criteria": {
+            "security": 0.2,
+            "growth": 0.4,
+            "autonomy": 0.6000000000000001,
+            "connection": 0.8,
+            "meaning": 0.30000000000000004
+          },
+          "timeline": [
+            {
+              "year": 1,
+              "regret": 0.12100000000000005
+            },
+            {
+              "year": 5,
+              "regret": 0.012999999999999956
+            },
+            {
+              "year": 20,
+              "regret": 0.030999999999999972
+            }
+          ],
+          "evidence_ids": [
+            "synthetic-v1"
+          ]
+        },
+        {
+          "option_id": "option_1",
+          "expected_utility": 0.51,
+          "expected_regret": 0,
+          "tail_regret": 0,
+          "score": 0.51,
+          "criteria": {
+            "security": 0.5,
+            "growth": 0.7,
+            "autonomy": 0.2,
+            "connection": 0.4,
+            "meaning": 0.6000000000000001
+          },
+          "timeline": [
+            {
+              "year": 1,
+              "regret": 0
+            },
+            {
+              "year": 5,
+              "regret": 0
+            },
+            {
+              "year": 20,
+              "regret": 0
+            }
+          ],
+          "evidence_ids": [
+            "synthetic-v1"
+          ]
+        }
+      ],
+      "uncertainty": {
+        "kind": "scenario",
+        "description": "Three equally weighted synthetic horizon scenarios. No population inference, causal forecast, or probability of life success.",
+        "sample_count": 3
+      },
+      "evidence": [
+        {
+          "id": "synthetic-v1",
+          "label": "Synthetic scenario fixture v1",
+          "kind": "illustrative",
+          "source": "Local deterministic formula in src/lib/analysis.ts; values depend on choice position, not decision text.",
+          "year": null,
+          "population": "None — synthetic choices",
+          "geography": "None"
+        }
+      ],
+      "assumptions": [
+        "Criterion values are arbitrary synthetic values by choice position.",
+        "Additive utility uses user-normalized weights.",
+        "Years 1, 5 and 20 are equally weighted scenario labels, not empirical forecasts.",
+        "Tail regret is the maximum of three scenario regrets (upper-tail CVaR at alpha 0.9 for this discrete fixture)."
+      ],
+      "method": "Score = mean scenario utility − risk_aversion × upper-tail regret; regret = best feasible utility − action utility in each scenario."
+    },
+    "advisors": [
+      {
+        "proposed_option_id": "option_1",
+        "reason": "An industry analytics role provides immediate security and practical experience, which aligns with the user's desire to stay near family and balance responsibilities. A funded PhD offers long-term growth but introduces uncertainty and potential delays in personal and professional connections.",
+        "assumptions": [
+          "The user values stability and immediate connection to family over long-term academic aspirations.",
+          "The industry role will provide sufficient growth opportunities to maintain career satisfaction."
+        ],
+        "uncertainty_flags": [
+          "The long-term impact of a PhD on personal and professional connections is uncertain.",
+          "The user's interest in research may evolve over time, affecting satisfaction with an industry role."
+        ],
+        "evidence_ids": [],
+        "id": "future",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_0",
+        "confidence": 0.2857054855139698,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_1",
+        "reason": "An industry analytics role provides immediate security and practical experience, which aligns with the user's desire to balance responsibilities with long-term growth. It also allows for maintaining family connections while gaining skills applicable to future research.",
+        "assumptions": [
+          "The industry role offers sufficient growth opportunities for the user's career.",
+          "The user can maintain family connections while working in an industry role."
+        ],
+        "uncertainty_flags": [
+          "The long-term impact of an industry role on research aspirations is uncertain.",
+          "The user's ability to transition to academia later may depend on industry experience."
+        ],
+        "evidence_ids": [],
+        "id": "rational",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_0",
+        "confidence": 0.346713146371433,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_1",
+        "reason": "An industry analytics role provides immediate security and connection to family, aligning with the user's values of balancing responsibilities with long-term growth. It allows for practical application of skills while maintaining stability.",
+        "assumptions": [
+          "The user prioritizes immediate security and family connection over long-term research goals.",
+          "The industry role offers sufficient growth opportunities to maintain professional development."
+        ],
+        "uncertainty_flags": [
+          "The long-term impact of a PhD on personal and professional flourishing is uncertain.",
+          "The user's ability to maintain research interests while working in industry is unclear."
+        ],
+        "evidence_ids": [],
+        "id": "wisdom",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_0",
+        "confidence": 0.22229079074534153,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_1",
+        "reason": "The industry role offers immediate security and connection to family, while the PhD provides long-term growth but requires significant time and potential relocation. The decision should balance these tradeoffs based on personal values and responsibilities.",
+        "assumptions": [
+          "The industry role allows for maintaining family connections and financial stability.",
+          "A PhD may require relocation or extended time away from family, impacting connection and security."
+        ],
+        "uncertainty_flags": [
+          "The long-term impact of a PhD on career growth and personal fulfillment is uncertain.",
+          "The potential for meaningful work in industry versus academia is subjective and varies by individual."
+        ],
+        "evidence_ids": [],
+        "id": "relationship",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_0",
+        "confidence": 0,
+        "selection_source": "drex"
+      }
+    ],
+    "arbitration": {
+      "option_id": "option_1",
+      "confidence": 0.671698783759791,
+      "probabilities": {
+        "option_0": 0.16415060812010454,
+        "option_1": 0.8358493918798955
+      },
+      "model": "drex-max-v1.1",
+      "request_id": "req_150f7eb1976d8a3bedd3b477b0eabe1c"
+    },
+    "numerical_winner": "option_1",
+    "disagreement": false,
+    "latency_ms": 30469,
+    "drex_input_tokens": 2471,
+    "limitations": [
+      "Advisor reasons are model interpretations, not independent empirical expertise.",
+      "Drex probabilities describe model choice, not life success or remorse.",
+      "Numerical analysis uses synthetic scenarios, not Person A or population data."
+    ]
+  }
+}

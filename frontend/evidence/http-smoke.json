@@ -1,0 +1,29 @@
+{
+  "tested_at": "2026-11-14T22:42:10.610Z",
+  "checks": [
+    {
+      "name": "unsupported method",
+      "status": 405,
+      "expected": 405,
+      "passed": true
+    },
+    {
+      "name": "invalid body",
+      "status": 400,
+      "expected": 400,
+      "passed": true
+    },
+    {
+      "name": "cross-origin",
+      "status": 403,
+      "expected": 403,
+      "passed": true
+    },
+    {
+      "name": "numerical analysis",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    }
+  ]
+}

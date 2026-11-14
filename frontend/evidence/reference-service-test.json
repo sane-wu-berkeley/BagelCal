@@ -1,0 +1,106 @@
+{
+  "tested_at": "2026-11-14T22:37:18.365Z",
+  "reference_service_only": true,
+  "analysis": {
+    "schema_version": "1.0",
+    "source": "person_a",
+    "suggested_weights": {
+      "security": 0.2,
+      "growth": 0.3,
+      "autonomy": 0.15,
+      "connection": 0.2,
+      "meaning": 0.15
+    },
+    "actions": [
+      {
+        "option_id": "option_0",
+        "expected_utility": 0.6781666666666667,
+        "expected_regret": 0.04277777777777777,
+        "tail_regret": 0.10416666666666663,
+        "score": 0.6260833333333333,
+        "criteria": {
+          "security": 0.4833333333333334,
+          "growth": 0.85,
+          "autonomy": 0.6833333333333332,
+          "connection": 0.5,
+          "meaning": 0.8666666666666667
+        },
+        "timeline": [
+          {
+            "year": 1,
+            "regret": 0.05833333333333335
+          },
+          {
+            "year": 5,
+            "regret": 0.05166666666666667
+          },
+          {
+            "year": 20,
+            "regret": 0.022499999999999964
+          }
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ]
+      },
+      {
+        "option_id": "option_1",
+        "expected_utility": 0.7083333333333335,
+        "expected_regret": 0.012611111111111054,
+        "tail_regret": 0.03783333333333316,
+        "score": 0.6894166666666669,
+        "criteria": {
+          "security": 0.8166666666666668,
+          "growth": 0.6666666666666666,
+          "autonomy": 0.5833333333333334,
+          "connection": 0.8000000000000002,
+          "meaning": 0.65
+        },
+        "timeline": [
+          {
+            "year": 1,
+            "regret": 0.006333333333333339
+          },
+          {
+            "year": 5,
+            "regret": 0.002166666666666687
+          },
+          {
+            "year": 20,
+            "regret": 0.033499999999999974
+          }
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ]
+      }
+    ],
+    "uncertainty": {
+      "kind": "scenario",
+      "description": "Computed from your reviewed assumptions across three equally weighted hypothetical states. These are judgments, not measured forecasts.",
+      "sample_count": 3
+    },
+    "evidence": [
+      {
+        "id": "scenario-inputs",
+        "label": "User-reviewed scenario assumptions",
+        "kind": "user_provided",
+        "source": "Explicit criterion scores and uncertainty spreads supplied in scenario_inputs. Missing sample inputs use neutral 0.5 scores.",
+        "year": null,
+        "population": "Individual decision assumptions; no survey sample",
+        "geography": "User context only"
+      }
+    ],
+    "assumptions": [
+      "This is the bundled reference service using submitted assumptions, not Person A’s unavailable statistical engine.",
+      "Criterion satisfaction uses a 0–1 scale; 1 means fully satisfies the stated value.",
+      "Five user weights sum to one. Years 1, 5 and 20 receive equal weight; there is no discounting.",
+      "Three hypothetical shared states have equal assumed probability, not empirically estimated probability. Each criterion is shifted by minus spread, zero, or plus spread and clipped to [0,1].",
+      "A state affects every option in the same direction, with an option-specific spread. This is an explicit dependence assumption.",
+      "Regret compares full-path utility against the best feasible fixed path within each state. Horizon bars compare options separately at that horizon, so their average need not equal full-path regret.",
+      "Upper-tail CVaR uses alpha=0.90; with three equally likely states this equals the worst state regret.",
+      "No life-outcome probability, causal estimate, statistical confidence interval, or convergence claim is produced."
+    ],
+    "method": "Utility = weighted criterion satisfaction, averaged over horizons. Regret = best feasible full-path utility minus path utility in each shared state. Score = expected utility − risk_aversion × CVaR90(regret)."
+  }
+}

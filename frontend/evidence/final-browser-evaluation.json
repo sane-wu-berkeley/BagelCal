@@ -1,0 +1,209 @@
+{
+  "tested_at": "2026-11-14T14:42:00-08:00",
+  "synthetic_test_input": true,
+  "result": {
+    "source": "live",
+    "analysis": {
+      "schema_version": "1.0",
+      "source": "elicited",
+      "suggested_weights": {
+        "security": 0.2,
+        "growth": 0.3,
+        "autonomy": 0.15,
+        "connection": 0.2,
+        "meaning": 0.15
+      },
+      "actions": [
+        {
+          "option_id": "option_0",
+          "expected_utility": 0.6781666666666667,
+          "expected_regret": 0.04277777777777777,
+          "tail_regret": 0.10416666666666663,
+          "score": 0.6260833333333333,
+          "criteria": {
+            "security": 0.4833333333333334,
+            "growth": 0.85,
+            "autonomy": 0.6833333333333332,
+            "connection": 0.5,
+            "meaning": 0.8666666666666667
+          },
+          "timeline": [
+            {
+              "year": 1,
+              "regret": 0.05833333333333335
+            },
+            {
+              "year": 5,
+              "regret": 0.05166666666666667
+            },
+            {
+              "year": 20,
+              "regret": 0.022499999999999964
+            }
+          ],
+          "evidence_ids": [
+            "scenario-inputs"
+          ]
+        },
+        {
+          "option_id": "option_1",
+          "expected_utility": 0.7083333333333335,
+          "expected_regret": 0.012611111111111054,
+          "tail_regret": 0.03783333333333316,
+          "score": 0.6894166666666669,
+          "criteria": {
+            "security": 0.8166666666666668,
+            "growth": 0.6666666666666666,
+            "autonomy": 0.5833333333333334,
+            "connection": 0.8000000000000002,
+            "meaning": 0.65
+          },
+          "timeline": [
+            {
+              "year": 1,
+              "regret": 0.006333333333333339
+            },
+            {
+              "year": 5,
+              "regret": 0.002166666666666687
+            },
+            {
+              "year": 20,
+              "regret": 0.033499999999999974
+            }
+          ],
+          "evidence_ids": [
+            "scenario-inputs"
+          ]
+        }
+      ],
+      "uncertainty": {
+        "kind": "scenario",
+        "description": "Computed from your reviewed assumptions across three equally weighted hypothetical states. These are judgments, not measured forecasts.",
+        "sample_count": 3
+      },
+      "evidence": [
+        {
+          "id": "scenario-inputs",
+          "label": "User-reviewed scenario assumptions",
+          "kind": "user_provided",
+          "source": "Explicit criterion scores and uncertainty spreads supplied in scenario_inputs. Missing sample inputs use neutral 0.5 scores.",
+          "year": null,
+          "population": "Individual decision assumptions; no survey sample",
+          "geography": "User context only"
+        }
+      ],
+      "assumptions": [
+        "Criterion satisfaction uses a 0\u20131 scale; 1 means fully satisfies the stated value.",
+        "Five user weights sum to one. Years 1, 5 and 20 receive equal weight; there is no discounting.",
+        "Three hypothetical shared states have equal assumed probability, not empirically estimated probability. Each criterion is shifted by minus spread, zero, or plus spread and clipped to [0,1].",
+        "A state affects every option in the same direction, with an option-specific spread. This is an explicit dependence assumption.",
+        "Regret compares full-path utility against the best feasible fixed path within each state. Horizon bars compare options separately at that horizon, so their average need not equal full-path regret.",
+        "Upper-tail CVaR uses alpha=0.90; with three equally likely states this equals the worst state regret.",
+        "No life-outcome probability, causal estimate, statistical confidence interval, or convergence claim is produced."
+      ],
+      "method": "Utility = weighted criterion satisfaction, averaged over horizons. Regret = best feasible full-path utility minus path utility in each shared state. Score = expected utility \u2212 risk_aversion \u00d7 CVaR90(regret)."
+    },
+    "advisors": [
+      {
+        "proposed_option_id": "option_1",
+        "reason": "An industry analytics role offers immediate security and connection, which aligns with the profile's emphasis on family and stability. While a PhD provides long-term growth and meaning, the immediate trade-offs in autonomy and connection may outweigh the benefits for someone prioritizing family and short-term stability.",
+        "assumptions": [
+          "The profile values immediate security and connection over long-term growth and meaning.",
+          "The user's family commitments and personal priorities are more important than potential long-term academic success."
+        ],
+        "uncertainty_flags": [
+          "The long-term growth potential of an industry role is uncertain and may not match a PhD's trajectory.",
+          "The meaning derived from industry work may differ significantly from academic research."
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ],
+        "id": "future",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_0",
+        "confidence": 0.17890524864196777,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_1",
+        "reason": "The industry analytics role offers greater short-term security and connection, which aligns with the profile's emphasis on family and responsibilities. It also provides a more stable income and less uncertainty compared to a funded PhD, which may involve longer-term risks and less immediate autonomy.",
+        "assumptions": [
+          "The user prioritizes short-term stability and connection over long-term growth and meaning.",
+          "The industry role provides a more predictable career path with fewer uncertainties."
+        ],
+        "uncertainty_flags": [
+          "The long-term growth potential of the industry role is uncertain and may not match a PhD's academic trajectory.",
+          "The meaning derived from research may not be fully captured by the industry role's criteria."
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ],
+        "id": "rational",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_1",
+        "confidence": 0.022602527660056104,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_0",
+        "reason": "A funded PhD aligns with the long-term flourishing of research and learning, which are highly valued in the profile. It also offers greater meaning and growth over time, which are critical for the stated philosophy of balancing long-term flourishing with responsibilities to others.",
+        "assumptions": [
+          "The profile's emphasis on research and learning will be fulfilled through a PhD, which is a common path for academic growth.",
+          "The industry role provides immediate security and connection, but may not fulfill the long-term goals of research and learning."
+        ],
+        "uncertainty_flags": [
+          "The long-term impact of a PhD on career and personal life is uncertain and may vary based on external factors.",
+          "The industry role may offer stability, but its ability to provide meaningful growth and connection over time is uncertain."
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ],
+        "id": "wisdom",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_1",
+        "confidence": 0.2222903238361882,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_1",
+        "reason": "The industry analytics role offers greater short-term security and connection, which aligns with the profile's emphasis on family and stability. It also provides a more consistent path to meaning and autonomy over time, while allowing for continued learning without the uncertainties of academic research.",
+        "assumptions": [
+          "The user prioritizes immediate stability and family connection over long-term academic growth.",
+          "The industry role provides a clearer trajectory for professional development and work-life balance."
+        ],
+        "uncertainty_flags": [
+          "The long-term growth potential of the industry role may be underestimated.",
+          "The academic path may offer greater intellectual fulfillment than anticipated."
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ],
+        "id": "relationship",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_1",
+        "confidence": 0.4236471652984619,
+        "selection_source": "drex"
+      }
+    ],
+    "arbitration": {
+      "option_id": "option_1",
+      "confidence": 0.7687604822686422,
+      "probabilities": {
+        "option_0": 0.11561975886567888,
+        "option_1": 0.8843802411343211
+      },
+      "model": "drex-max-v1.1",
+      "request_id": "req_b641356ea706d2f26424bb651525ea63"
+    },
+    "numerical_winner": "option_1",
+    "disagreement": false,
+    "latency_ms": 43152,
+    "drex_input_tokens": 5482,
+    "limitations": [
+      "Advisor reasons are model interpretations, not independent empirical expertise.",
+      "Drex probabilities describe model choice, not life success or remorse.",
+      "Numerical analysis computes your assumptions, not empirical predictions."
+    ]
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "tested_at": "2026-11-14T22:36:50.606Z",
+  "input": {
+    "schema_version": "1.0",
+    "question": "Should I pursue a funded PhD or accept an industry analytics role?",
+    "profile": "Synthetic demo profile: a recent quantitative graduate who values research, has an industry offer, and wants to stay near family. Neither option is ruled out.",
+    "philosophy": "Balance long-term flourishing with responsibilities to others.",
+    "options": [
+      {
+        "id": "option_0",
+        "label": "Funded PhD",
+        "feasible": true
+      },
+      {
+        "id": "option_1",
+        "label": "Industry analytics role",
+        "feasible": true
+      }
+    ],
+    "weights": {
+      "security": 0.2,
+      "growth": 0.3,
+      "autonomy": 0.15,
+      "connection": 0.2,
+      "meaning": 0.15
+    },
+    "risk_aversion": 0.5,
+    "analysis_source": "elicited",
+    "scenario_inputs": [
+      {
+        "option_id": "option_0",
+        "spread": 0.18,
+        "horizons": [
+          {
+            "year": 1,
+            "criteria": {
+              "security": 0.35,
+              "growth": 0.85,
+              "autonomy": 0.55,
+              "connection": 0.45,
+              "meaning": 0.85
+            }
+          },
+          {
+            "year": 5,
+            "criteria": {
+              "security": 0.45,
+              "growth": 0.9,
+              "autonomy": 0.7,
+              "connection": 0.45,
+              "meaning": 0.9
+            }
+          },
+          {
+            "year": 20,
+            "criteria": {
+              "security": 0.65,
+              "growth": 0.8,
+              "autonomy": 0.8,
+              "connection": 0.6,
+              "meaning": 0.85
+            }
+          }
+        ]
+      },
+      {
+        "option_id": "option_1",
+        "spread": 0.1,
+        "horizons": [
+          {
+            "year": 1,
+            "criteria": {
+              "security": 0.8,
+              "growth": 0.65,
+              "autonomy": 0.45,
+              "connection": 0.8,
+              "meaning": 0.6
+            }
+          },
+          {
+            "year": 5,
+            "criteria": {
+              "security": 0.85,
+              "growth": 0.7,
+              "autonomy": 0.6,
+              "connection": 0.8,
+              "meaning": 0.65
+            }
+          },
+          {
+            "year": 20,
+            "criteria": {
+              "security": 0.8,
+              "growth": 0.65,
+              "autonomy": 0.7,
+              "connection": 0.8,
+              "meaning": 0.7
+            }
+          }
+        ]
+      }
+    ],
+    "mode": "live"
+  },
+  "result": {
+    "source": "live",
+    "analysis": {
+      "schema_version": "1.0",
+      "source": "elicited",
+      "suggested_weights": {
+        "security": 0.2,
+        "growth": 0.3,
+        "autonomy": 0.15,
+        "connection": 0.2,
+        "meaning": 0.15
+      },
+      "actions": [
+        {
+          "option_id": "option_0",
+          "expected_utility": 0.6781666666666667,
+          "expected_regret": 0.04277777777777777,
+          "tail_regret": 0.10416666666666663,
+          "score": 0.6260833333333333,
+          "criteria": {
+            "security": 0.4833333333333334,
+            "growth": 0.85,
+            "autonomy": 0.6833333333333332,
+            "connection": 0.5,
+            "meaning": 0.8666666666666667
+          },
+          "timeline": [
+            {
+              "year": 1,
+              "regret": 0.05833333333333335
+            },
+            {
+              "year": 5,
+              "regret": 0.05166666666666667
+            },
+            {
+              "year": 20,
+              "regret": 0.022499999999999964
+            }
+          ],
+          "evidence_ids": [
+            "scenario-inputs"
+          ]
+        },
+        {
+          "option_id": "option_1",
+          "expected_utility": 0.7083333333333335,
+          "expected_regret": 0.012611111111111054,
+          "tail_regret": 0.03783333333333316,
+          "score": 0.6894166666666669,
+          "criteria": {
+            "security": 0.8166666666666668,
+            "growth": 0.6666666666666666,
+            "autonomy": 0.5833333333333334,
+            "connection": 0.8000000000000002,
+            "meaning": 0.65
+          },
+          "timeline": [
+            {
+              "year": 1,
+              "regret": 0.006333333333333339
+            },
+            {
+              "year": 5,
+              "regret": 0.002166666666666687
+            },
+            {
+              "year": 20,
+              "regret": 0.033499999999999974
+            }
+          ],
+          "evidence_ids": [
+            "scenario-inputs"
+          ]
+        }
+      ],
+      "uncertainty": {
+        "kind": "scenario",
+        "description": "Computed from your reviewed assumptions across three equally weighted hypothetical states. These are judgments, not measured forecasts.",
+        "sample_count": 3
+      },
+      "evidence": [
+        {
+          "id": "scenario-inputs",
+          "label": "User-reviewed scenario assumptions",
+          "kind": "user_provided",
+          "source": "Explicit criterion scores and uncertainty spreads supplied in scenario_inputs. Missing sample inputs use neutral 0.5 scores.",
+          "year": null,
+          "population": "Individual decision assumptions; no survey sample",
+          "geography": "User context only"
+        }
+      ],
+      "assumptions": [
+        "Criterion satisfaction uses a 0–1 scale; 1 means fully satisfies the stated value.",
+        "Five user weights sum to one. Years 1, 5 and 20 receive equal weight; there is no discounting.",
+        "Three hypothetical shared states have equal assumed probability, not empirically estimated probability. Each criterion is shifted by minus spread, zero, or plus spread and clipped to [0,1].",
+        "A state affects every option in the same direction, with an option-specific spread. This is an explicit dependence assumption.",
+        "Regret compares full-path utility against the best feasible fixed path within each state. Horizon bars compare options separately at that horizon, so their average need not equal full-path regret.",
+        "Upper-tail CVaR uses alpha=0.90; with three equally likely states this equals the worst state regret.",
+        "No life-outcome probability, causal estimate, statistical confidence interval, or convergence claim is produced."
+      ],
+      "method": "Utility = weighted criterion satisfaction, averaged over horizons. Regret = best feasible full-path utility minus path utility in each shared state. Score = expected utility − risk_aversion × CVaR90(regret)."
+    },
+    "advisors": [
+      {
+        "proposed_option_id": "option_1",
+        "reason": "The industry analytics role offers higher security and connection in the short term, with stable growth and meaning over time. It aligns with the user's values while maintaining family proximity and reducing long-term risk.",
+        "assumptions": [
+          "The user's prioritization of security and connection over growth and autonomy is consistent across horizons.",
+          "The industry role's stability and family proximity will remain advantageous over time."
+        ],
+        "uncertainty_flags": [
+          "The long-term growth potential of the industry role may be limited compared to a PhD.",
+          "The user's ability to balance research aspirations with industry work is uncertain."
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ],
+        "id": "future",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_1",
+        "confidence": 0.20069639678618922,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_1",
+        "reason": "The industry analytics role has a higher expected utility and lower regret across all horizons, suggesting it better balances security, connection, and meaning while maintaining autonomy and growth.",
+        "assumptions": [
+          "The user's weights for security, growth, autonomy, connection, and meaning are accurate and reflect their priorities.",
+          "The three hypothetical states are equally likely and represent reasonable variations in criterion satisfaction."
+        ],
+        "uncertainty_flags": [
+          "The scenario assumptions are user-reviewed judgments, not empirical forecasts.",
+          "The spread values may not fully capture real-world variability in outcomes."
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ],
+        "id": "rational",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_1",
+        "confidence": 0.5601010090097636,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_1",
+        "reason": "The industry analytics role offers higher security and connection, which align with the user's values and responsibilities to others. It also provides a more stable path for long-term flourishing without sacrificing family time.",
+        "assumptions": [
+          "The user's prioritization of security and connection over growth and autonomy is consistent with their stated philosophy.",
+          "The three hypothetical states are equally likely and represent the user's subjective assumptions about future outcomes."
+        ],
+        "uncertainty_flags": [
+          "The scenario assumptions are subjective and not empirically validated.",
+          "The risk aversion parameter may not fully capture the user's actual risk tolerance."
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ],
+        "id": "wisdom",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_1",
+        "confidence": 0.26481286480465127,
+        "selection_source": "drex"
+      },
+      {
+        "proposed_option_id": "option_1",
+        "reason": "The industry analytics role has a higher expected utility and lower regret across all horizons, aligning with the prioritization of security and connection while maintaining reasonable growth and meaning.",
+        "assumptions": [
+          "The user's values are accurately represented by the provided weights and criteria.",
+          "The three hypothetical states are equally likely and representative of the user's potential future scenarios."
+        ],
+        "uncertainty_flags": [
+          "The scenario assumptions are user-reviewed judgments, not empirical forecasts.",
+          "The model assumes equal probability for all hypothetical states, which may not reflect real-world likelihoods."
+        ],
+        "evidence_ids": [
+          "scenario-inputs"
+        ],
+        "id": "relationship",
+        "model": "qwen3:8b + drex-max-v1.1",
+        "chosen_option_id": "option_1",
+        "confidence": 0.7395432513816134,
+        "selection_source": "drex"
+      }
+    ],
+    "arbitration": {
+      "option_id": "option_1",
+      "confidence": 0.7950860139778861,
+      "probabilities": {
+        "option_0": 0.10245699301105696,
+        "option_1": 0.8975430069889431
+      },
+      "model": "drex-max-v1.1",
+      "request_id": "req_9b05d8c07d5543a5edd40ba910c01342"
+    },
+    "numerical_winner": "option_1",
+    "disagreement": false,
+    "latency_ms": 44944,
+    "drex_input_tokens": 5315,
+    "limitations": [
+      "Advisor reasons are model interpretations, not independent empirical expertise.",
+      "Drex probabilities describe model choice, not life success or remorse.",
+      "Numerical analysis computes your assumptions, not empirical predictions."
+    ]
+  }
+}

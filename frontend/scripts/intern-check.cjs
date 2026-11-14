@@ -1,0 +1,7 @@
+require('@next/env').loadEnvConfig(process.cwd());const fs=require('node:fs'),cp=require('node:child_process'),path=require('node:path');
+const local=path.join(process.cwd(),'.intern-run');fs.mkdirSync(local,{recursive:true});
+const prompt='Verify the Regret Simulator component. Run exactly this read-only validation command: node --test tests/engine.test.cjs . Then summarize the result and explain that sample scenarios are illustrative and reviewed scenarios use subjective user inputs, not empirical forecasts. Do not inspect environment files or credentials. Do not edit any files. /no_think';
+const child=cp.spawn(process.env.INTERN_BIN||'intern',['--print','--json','--no-context-files','--no-extensions','--no-memory','--no-session','--max-turns','5','--cwd',process.cwd(),'--system2','ollama/qwen3:8b','--system1','drex-latest',prompt],{env:{...process.env,INTERN_HOME:local},stdio:['ignore','pipe','pipe']});
+let out='';for(const stream of [child.stdout,child.stderr])stream.on('data',x=>{out+=x.toString();});
+const timer=setTimeout(()=>child.kill('SIGTERM'),180000);
+child.on('close',code=>{clearTimeout(timer);const key=process.env.NACE_API_KEY;let safe=key?out.split(key).join('[REDACTED]'):out;safe=safe.replace(/nace_sk_[A-Za-z0-9_-]+/g,'[REDACTED]');fs.writeFileSync('evidence/intern-verification.jsonl',safe);console.log('Intern exit code:',code,'; redacted execution log saved.');process.exitCode=code??1;});

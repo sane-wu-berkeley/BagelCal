@@ -1,0 +1,5 @@
+export class ServiceError extends Error {constructor(message:string,public status=502){super(message);}}
+export const json=(body:unknown,status=200)=>Response.json(body,{status,headers:{'Cache-Control':'no-store'}});
+export function checkOrigin(r:Request){const origin=r.headers.get('origin');if(origin){try{if(new URL(origin).host!==r.headers.get('host'))throw new Error();}catch{throw new ServiceError('Cross-origin requests are not allowed.',403);}}}
+export async function readJson(r:Request,max=24000){const reader=r.body?.getReader();if(!reader)throw new ServiceError('JSON body required.',400);let bytes=0;const chunks:Uint8Array[]=[];while(true){const {value,done}=await reader.read();if(done)break;bytes+=value.length;if(bytes>max){await reader.cancel();throw new ServiceError('Request is too large.',413);}chunks.push(value);}try{return JSON.parse(Buffer.concat(chunks).toString('utf8'));}catch{throw new ServiceError('Invalid JSON.',400);}}
+export function errorResponse(e:unknown){return json({error:e instanceof ServiceError?e.message:'The evaluation could not finish. Check local model/service availability and retry.'},e instanceof ServiceError?e.status:502);}

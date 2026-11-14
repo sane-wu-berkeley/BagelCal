@@ -1,0 +1,2 @@
+require('./register.cjs');require('@next/env').loadEnvConfig(process.cwd());const fs=require('node:fs');const {extractProfile}=require('../src/lib/profile.ts');
+(async()=>{const r=await extractProfile({consent:true,pdf_base64:fs.readFileSync('examples/synthetic-profile.pdf').toString('base64')});fs.writeFileSync('evidence/ndi-synthetic-extraction.json',JSON.stringify({tested_at:new Date().toISOString(),synthetic_input:true,...r},null,2));console.log(JSON.stringify(r));})().catch(e=>{console.error(e.message);process.exitCode=1});
